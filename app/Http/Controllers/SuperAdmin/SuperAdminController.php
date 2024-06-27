@@ -285,7 +285,7 @@ class SuperAdminController extends Controller
     // Show the form for creating a new schedule
     public function createSchedule()
     {
-        return view('superadmin.schedule.create-schedule');
+        return view('superadmin.schedules.create-schedule');
     }
 
     // Store a newly created schedule in storage
@@ -566,5 +566,81 @@ class SuperAdminController extends Controller
         return view('superadmin.reports.report-bookings', compact('bookings'));
     }
 
-    
+
+    // Display a listing of cars
+    public function manageCars()
+    {
+        $cars = Car::all();
+        return view('superadmin.cars.manage-cars', compact('cars'));
+    }
+
+    // Show the form for creating a new car
+    public function createCar()
+    {
+        return view('superadmin.cars.create-car');
+    }
+
+    // Store a newly created car in storage
+    public function storeCar(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'merk' => 'required|string|max:255',
+            'model' => 'required|string|max:255',
+            'tahun' => 'required|integer',
+            'nomor_polisi' => 'required|string|max:255',
+            'kapasitas' => 'required|integer',
+            'status_mobil' => 'required|in:Tersedia,Tidak Tersedia',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('create-car')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        Car::create($request->all());
+
+        return redirect()->route('manage-cars')->with('success', 'Mobil berhasil ditambahkan.');
+    }
+
+    // Show the form for editing the specified car
+    public function editCar($id)
+    {
+        $car = Car::findOrFail($id);
+        return view('superadmin.cars.edit-car', compact('car'));
+    }
+
+    // Update the specified car in storage
+    public function updateCar(Request $request, $id)
+    {
+        $car = Car::findOrFail($id);
+
+        $validator = Validator::make($request->all(), [
+            'merk' => 'required|string|max:255',
+            'model' => 'required|string|max:255',
+            'tahun' => 'required|integer',
+            'nomor_polisi' => 'required|string|max:255',
+            'kapasitas' => 'required|integer',
+            'status_mobil' => 'required|in:Tersedia,Tidak Tersedia',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('edit-car', $car->id)
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $car->update($request->all());
+
+        return redirect()->route('manage-cars')->with('success', 'Mobil berhasil diperbaharui.');
+    }
+
+    // Remove the specified car from storage
+    public function deleteCar($id)
+    {
+        $car = Car::findOrFail($id);
+        $car->delete();
+
+        return redirect()->route('manage-cars')->with('success', 'Mobil berhasil dihapus.');
+    }
 }

@@ -109,6 +109,13 @@ Route::middleware(['auth', 'superadmin'])->group(function () {
     Route::get('/edit-trip/{id}', [SuperAdminController::class, 'editTrip'])->name('edit-trip');
     Route::put('/update-trip/{id}', [SuperAdminController::class, 'updateTrip'])->name('update-trip');
     Route::delete('/delete-trip/{id}', [SuperAdminController::class, 'deleteTrip'])->name('delete-trip');
+    // Cars management routes
+    Route::get('/manage-cars', [SuperAdminController::class, 'manageCars'])->name('manage-cars');
+    Route::get('/create-car', [SuperAdminController::class, 'createCar'])->name('create-car');
+    Route::post('/store-car', [SuperAdminController::class, 'storeCar'])->name('store-car');
+    Route::get('/edit-car/{id}', [SuperAdminController::class, 'editCar'])->name('edit-car');
+    Route::put('/update-car/{id}', [SuperAdminController::class, 'updateCar'])->name('update-car');
+    Route::delete('/delete-car/{id}', [SuperAdminController::class, 'deleteCar'])->name('delete-car');
     // Report routes
     Route::get('/report-bookings', [SuperAdminController::class, 'reportBookings'])->name('report-bookings');
     Route::get('/report/download', [SuperAdminController::class, 'downloadReport'])->name('report.download');
@@ -116,7 +123,9 @@ Route::middleware(['auth', 'superadmin'])->group(function () {
 
 Route::middleware(['auth', 'user'])->group(function () {
     // Routes for regular users
-    Route::get('/user/dashboard', [UserController::class, 'dashboard'])->name('user.dashboard')->middleware('auth', 'user');
+    Route::get('/users/pages/index', [UserController::class, 'dashboard'])->name('user.dashboard')->middleware('auth', 'user');
     Route::get('/admin/register', [AdminRegisterController::class, 'showRegistrationForm'])->name('admin.register');
     Route::post('/admin/register', [AdminRegisterController::class, 'register']);
+    Route::get('/booking', [BookingController::class, 'showBookingForm'])->name('booking.form');
+    Route::post('/booking', [BookingController::class, 'storeBooking'])->name('booking.store');
 });

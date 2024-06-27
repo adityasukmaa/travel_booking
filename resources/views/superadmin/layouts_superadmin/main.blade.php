@@ -72,6 +72,7 @@
                                     <a class="nav-link" href="{{ route ('manage-travels') }}">Data Travel</a>
                                     <a class="nav-link" href="{{ route ('manage-locations') }}">Data Tujuan</a>
                                     <a class="nav-link" href="{{ route ('manage-schedules') }}">Data Jadwal</a>
+                                    <a class="nav-link" href="{{ route ('manage-cars') }}">Data Mobil</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">

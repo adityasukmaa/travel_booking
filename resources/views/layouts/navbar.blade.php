@@ -13,7 +13,7 @@
                 </div>
                 <ul class="navbar-nav ms-auto mb-lg-0">
                     <li class="nav-item"><a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">Beranda</a></li>
-                    <li class="nav-item"><a class="nav-link {{ request()->is('cek-reservasi') ? 'active' : '' }}" href="{{ url('/cek-reservasi') }}">Cek Reservasi</a></li>
+                    <li class="nav-item"><a class="nav-link {{ request()->routeIs('cek-reservasi') ? 'active' : '' }}" href="{{ route('cek-reservasi') }}">Cek Reservasi</a></li>
                     <li class="nav-item"><a class="nav-link {{ request()->routeIs('kebijakan') ? 'active' : '' }}" href="{{ route('kebijakan') }}">Kebijakan</a></li>
                     <li class="nav-item"><a class="nav-link {{ request()->routeIs('tentang-kami') ? 'active' : '' }}" href="{{ route('tentang-kami') }}">Tentang Kami</a></li>
                     <li class="nav-item"><a class="nav-link {{ request()->routeIs('login') ? 'active' : '' }}" href="{{ route('login') }}">Login</a></li>

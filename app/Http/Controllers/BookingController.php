@@ -15,7 +15,7 @@ class BookingController extends Controller
     {
         $trips = Trip::all();
 
-        return view('/', compact('trips'));
+        return view('index', compact('trips'));
     }
 
     // Menyimpan data pemesanan

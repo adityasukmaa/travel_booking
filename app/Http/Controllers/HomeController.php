@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Car;
 use App\Models\Location;
 use App\Models\Travel;
 use App\Models\Trip;
@@ -11,10 +12,11 @@ class HomeController extends Controller
 {
     public function index()
     {
+        $cars = Car::all();
         $travels = Travel::all();
         $trips = Trip::all();
         $locations = Location::all();
-        return view('home', compact('travels', 'trips', 'locations'));
+        return view('home', compact('cars', 'travels', 'trips', 'locations'));
     }
 
     public function cekReservasi()

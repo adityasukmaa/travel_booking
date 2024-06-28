@@ -25,7 +25,7 @@
 
 
 {{-- Menambahkan Perjalanan --}}
-<div class="container mt-4">
+{{-- <div class="container mt-4">
     <h1>Tambah Perjalanan</h1>
     <form action="{{ route('trips.store') }}" method="POST">
         @csrf
@@ -83,10 +83,10 @@
         </div>
         <button type="submit" class="btn btn-primary">Tambah Perjalanan</button>
     </form>
-</div>
+</div> --}}
 
 {{-- Menambahkan Pemesanan --}}
-<div class="container mt-4">
+{{-- <div class="container mt-4">
     <h1>Tambah Pemesanan</h1>
     <form action="{{ route('bookings.store') }}" method="POST">
         @csrf
@@ -108,5 +108,5 @@
         </div>
         <button type="submit" class="btn btn-primary">Tambah Pemesanan</button>
     </form>
-</div>
+</div> --}}
 @endsection

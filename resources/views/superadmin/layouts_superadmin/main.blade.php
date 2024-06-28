@@ -68,7 +68,7 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route ('manage-users') }}">Data Pengguna</a>
+                                    {{-- <a class="nav-link" href="{{ route ('manage-users') }}">Data Pengguna</a> --}}
                                     <a class="nav-link" href="{{ route ('manage-travels') }}">Data Travel</a>
                                     <a class="nav-link" href="{{ route ('manage-locations') }}">Data Tujuan</a>
                                     <a class="nav-link" href="{{ route ('manage-schedules') }}">Data Jadwal</a>

@@ -123,9 +123,10 @@ Route::middleware(['auth', 'superadmin'])->group(function () {
 
 Route::middleware(['auth', 'user'])->group(function () {
     // Routes for regular users
-    Route::get('/users/pages/index', [UserController::class, 'dashboard'])->name('user.dashboard')->middleware('auth', 'user');
+    Route::get('/user/dashboard', [UserController::class, 'dashboard'])->name('user.dashboard')->middleware('auth', 'user');
     Route::get('/admin/register', [AdminRegisterController::class, 'showRegistrationForm'])->name('admin.register');
     Route::post('/admin/register', [AdminRegisterController::class, 'register']);
+    Route::get('/index', [UserController::class, 'index'])->name('index');
     Route::get('/booking', [BookingController::class, 'showBookingForm'])->name('booking.form');
     Route::post('/booking', [BookingController::class, 'storeBooking'])->name('booking.store');
 });

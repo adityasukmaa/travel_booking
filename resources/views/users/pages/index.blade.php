@@ -30,9 +30,9 @@
                     <div class="form-floating mb-3">
                         <select class="form-select" id="departure" name="departure" aria-label="Pilih Keberangkatan" required>
                             <option selected disabled value="">Pilih Keberangkatan</option>
-                            @foreach ($locations as $location)
+                            {{-- @foreach ($locations as $location)
                                 <option value="{{ $location->id }}">{{ $location->depature }}</option>
-                            @endforeach
+                            @endforeach --}}
                         </select>
                         <label for="departure">Keberangkatan</label>
                     </div>
@@ -40,9 +40,9 @@
                     <div class="form-floating mb-3">
                         <select class="form-select" id="destination" name="destination" aria-label="Pilih Tujuan" required>
                             <option selected disabled value="">Pilih Tujuan</option>
-                            @foreach ($locations as $location)
+                            {{-- @foreach ($locations as $location)
                                 <option value="{{ $location->id }}">{{ $location->destination }}</option>
-                            @endforeach
+                            @endforeach --}}
                         </select>
                         <label for="destination">Tujuan</label>
                     </div>

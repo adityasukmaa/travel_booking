@@ -12,6 +12,10 @@ class UserController extends Controller
     public function dashboard()
     {
         return view('users.pages.index');
+    }
+
+    public function index()
+    {
         $travels = Travel::all();
         $trips = Trip::all();
         $locations = Location::all();
